@@ -17,6 +17,7 @@ const config = {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
+        "mdxl": "991px",
       },
     },
     extend: {
@@ -45,6 +46,9 @@ const config = {
           600: "#76828D",
           700: "#ABB8C4",
         },
+        // background: {
+          
+        // }
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
@@ -53,6 +57,7 @@ const config = {
         appointments: "url('/assets/images/appointments-bg.png')",
         pending: "url('/assets/images/pending-bg.png')",
         cancelled: "url('/assets/images/cancelled-bg.png')",
+        'glaze-black': "linear-gradient(to right, rgba(215, 237, 237, 0.16), rgba(204, 235, 235, 0))",
       },
       keyframes: {
         "accordion-down": {
@@ -74,6 +79,8 @@ const config = {
         "caret-blink": "caret-blink 1.25s ease-out infinite",
       },
     },
+
+   
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
