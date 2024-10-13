@@ -36,6 +36,7 @@ interface CustomProps {
   showTimeSelect?: boolean;
   children?: React.ReactNode;
   renderSkeleton?: (field: any) => React.ReactNode;
+  onChange?: (value: any) => void;
 }
 
 const RenderFielld = ({ field, props }: { field: any; props: CustomProps }) => {
@@ -50,6 +51,7 @@ const RenderFielld = ({ field, props }: { field: any; props: CustomProps }) => {
     showTimeSelect,
     dateFormat,
     renderSkeleton,
+    onChange,
   } = props;
   switch (fieldType) {
     case FormFieldType.INPUT:
@@ -84,12 +86,16 @@ const RenderFielld = ({ field, props }: { field: any; props: CustomProps }) => {
       return (
         <FormControl>
           <PhoneInput
-            defaultCountry="US"
+            defaultCountry="IN"
             placeholder={placeholder}
             international
             withCountryCallingCode
+            //@ts-ignore
             value={field.value as E164Number | undefined}
-            onChange={field.onChange}
+            onChange={(value) => {
+              field.onChange(value); // Update form field
+              if (onChange) onChange(value); // Call custom onChange handler
+            }}
             className="input-phone"
           />
         </FormControl>

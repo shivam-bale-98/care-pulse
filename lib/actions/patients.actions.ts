@@ -21,7 +21,7 @@ export const createUser = async (user: CreateUserParams) => {
     // Check existing user
     if (error && error?.code === 409) {
       const existingUser = await users.list([
-        Query.equal("email", [user.email]),
+        Query.equal("email", [user.email!]),
       ]);
 
       return existingUser.users[0];
@@ -58,6 +58,7 @@ export const registerPatient = async ({identificationDocument, ...patient}: Regi
     //   identificationDocumentUrl: `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file?.$id}/view?project=${PROJECT_ID}`,
     // })
 
+    console.log('patient...')
     console.log({gender: patient.gender});
 
     const newPatient = await databases.createDocument(
@@ -88,7 +89,7 @@ export const getPatient = async (userId : string) => {
   try {
      const patients = await databases.listDocuments(
       DATABASE_ID!,
-      PATIENT_COLLECTION_ID,
+      PATIENT_COLLECTION_ID!,
       [Query.equal('userId', userId)]
      );
 

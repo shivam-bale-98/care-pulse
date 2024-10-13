@@ -13,7 +13,7 @@ const NewAppointment = async ({params : {userId}} : SearchParamProps) => {
   return (
     <div className="flex h-screen max-h-screen">
       {/* { otp verification } */}
-      <section className="remove-scrollbar container my-auto w-[70%]">
+      <section className="remove-scrollbar container my-auto md:w-[70%] w-full">
         <div className="sub-container max-w-[860px] flex-1 justify-between">
           <Image
             src="/assets/icons/logo-full.svg"
@@ -31,7 +31,7 @@ const NewAppointment = async ({params : {userId}} : SearchParamProps) => {
         </div>
       </section>
 
-      <section className="min-w-[18rem] w-[30%]  rounded-3xl overflow-hidden relative">
+      <section className="min-w-[18rem] w-[30%]  rounded-3xl overflow-hidden relative md:block hidden">
         <Image
           src="/assets/images/appointment-img.png"
           alt="Appointments"

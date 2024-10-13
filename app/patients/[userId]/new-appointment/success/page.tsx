@@ -45,7 +45,7 @@ const Success = async ({
           been successfully submitted!
         </h2>
 
-        <p className="">We'll be in touch shortly to confirm.</p>
+        <p>We&#39;ll be in touch shortly to confirm.</p>
       </div>
 
       <div className="request-details ">

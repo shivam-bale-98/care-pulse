@@ -82,6 +82,8 @@ const RegisterForm = ({ user }: { user: User }) => {
 
       const newPatient : any = await registerPatient(patientData);
 
+      console.log(newPatient, '--new patient registered')
+
       if (newPatient) {
         router.push(`/patients/${user.$id}/new-appointment`);
       }
